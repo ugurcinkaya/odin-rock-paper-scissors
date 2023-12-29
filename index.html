@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+</head>
+
+<body>
+    <script>
+
+        const choices = ["rock", "paper", "scissor"]
+        let playerSelection = prompt("Please type rock, paper or scissor");
+        let computerSelection = getComputerChoice();
+
+        if(!choices.includes(playerSelection)) {
+            let playerSelection = prompt("Please type rock, paper or scissor")
+        }
+
+        function getComputerChoice() {
+            return choices[Math.floor(Math.random()*choices.length)];
+        }
+
+        function game() {
+            function playRound(playerSelection, computerSelection) {
+
+                return "End Game Text"
+            }
+        }
+
+    </script>
+</body>
+
+</html>
