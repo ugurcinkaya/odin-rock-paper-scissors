@@ -4,30 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissor</title>
+    <title>Rock Paper Scissors</title>
 </head>
 
 <body>
     <script>
 
-        const choices = ["rock", "paper", "scissor"]
-        let playerSelection = prompt("Please type rock, paper or scissor");
+        const choices = ["rock", "paper", "scissors"]
+        let playerSelection = prompt("Please type rock, paper or scissors");
         let computerSelection = getComputerChoice();
 
-        if(!choices.includes(playerSelection)) {
-            let playerSelection = prompt("Please type rock, paper or scissor")
+        if (!choices.includes(playerSelection)) {
+            let playerSelection = prompt("Please type rock, paper or scissors")
         }
 
         function getComputerChoice() {
-            return choices[Math.floor(Math.random()*choices.length)];
+            return choices[Math.floor(Math.random() * choices.length)];
         }
-
         function game() {
             function playRound(playerSelection, computerSelection) {
-
-                return "End Game Text"
+                if (playerSelection === computerSelection) {
+                    console.log("Game is a tie");
+                }else if (
+                    (playerSelection === "rock" && computerSelection === "scissors") ||
+                    (playerSelection === "scissors" && computerSelection === "paper") ||
+                    (playerSelection === "paper" && computerSelection === "rock")
+                ) {
+                    console.log(`${playerSelection} beats ${computerSelection}.`);
+                }else {
+                    console.log(`You lose! ${computerSelection} beats ${playerSelection}.`)
+                }
             }
+            playRound(playerSelection, computerSelection);
         }
+
+        game();
 
     </script>
 </body>
