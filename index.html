@@ -11,35 +11,53 @@
     <script>
 
         const choices = ["rock", "paper", "scissors"]
-        let playerSelection = prompt("Please type rock, paper or scissors");
-        let computerSelection = getComputerChoice();
+        let playerScore = 0;
+        let computerScore = 0;
+        let roundNumber = 0;
 
-        if (!choices.includes(playerSelection)) {
-            let playerSelection = prompt("Please type rock, paper or scissors")
-        }
-
-        function getComputerChoice() {
-            return choices[Math.floor(Math.random() * choices.length)];
-        }
         function game() {
+
+            let playerSelection = prompt("Please type rock, paper or scissors");
+            let computerSelection = getComputerChoice();
+
+            if (!choices.includes(playerSelection)) {
+                let playerSelection = prompt("Please type rock, paper or scissors")
+            }
+
+            function getComputerChoice() {
+                return choices[Math.floor(Math.random() * choices.length)];
+            }
+
             function playRound(playerSelection, computerSelection) {
                 if (playerSelection === computerSelection) {
-                    console.log("Game is a tie");
-                }else if (
+                    console.log("Game is a tie.");
+                } else if (
                     (playerSelection === "rock" && computerSelection === "scissors") ||
                     (playerSelection === "scissors" && computerSelection === "paper") ||
                     (playerSelection === "paper" && computerSelection === "rock")
                 ) {
-                    console.log(`${playerSelection} beats ${computerSelection}.`);
-                }else {
+                    console.log(`You win!${playerSelection} beats ${computerSelection}.`);
+                    playerScore++;
+                } else {
                     console.log(`You lose! ${computerSelection} beats ${playerSelection}.`)
+                    computerScore++;
                 }
+                roundNumber ++;
+                console.log(roundNumber);
             }
             playRound(playerSelection, computerSelection);
         }
+        for (let i = 0; i < 5; i++) {
+            game();          
+        }
 
-        game();
-
+        if(roundNumber === 5 && playerScore > computerScore) {
+                console.log("You win the game!")
+            }else if(roundNumber === 5 && playerScore < computerScore){
+                console.log("You lose the game!")
+            }else {
+                console.log("Nobody won! Game is a tie.")
+            }
     </script>
 </body>
 
